@@ -6,7 +6,7 @@ import { TouchableOpacity } from 'react-native'
 import { Image, View } from 'react-native'
 import { twMerge } from 'tailwind-merge'
 
-type NavigationProps = NativeStackNavigationProp<RouterStacks>
+type NavigationProps = NativeStackNavigationProp<RouterStacks, 'Home'>
 const ItensNav = {
   Historico: {
     image: require('@/assets/icons/historico.png'),
@@ -25,7 +25,7 @@ const ItensNav = {
 interface NavItemsProps {
   Type: keyof typeof ItensNav
   className?: string
-  route: keyof RouterStacks
+  route?: keyof RouterStacks
 }
 export function NavItems({ Type, className, route }: NavItemsProps) {
   const option = ItensNav[Type]
@@ -41,13 +41,13 @@ export function NavItems({ Type, className, route }: NavItemsProps) {
     <TouchableOpacity activeOpacity={0.8} onPress={handleNavigate}>
       <View
         className={twMerge(
-          `min-w-[90%] bg-headerColor h-[120] rounded-[20] items-center justify-around flex-row gap-3 px-5`,
+          `min-w-[85%] bg-headerColor h-[125] rounded-[20] items-center justify-around flex-row gap-3 px-2 `,
           className,
         )}
       >
         <Image source={option.image} className="object-contain  h-20 w-20 " />
 
-        <TextWithFont className="text-5xl text-white/80">
+        <TextWithFont className="text-5xl text-white/80 flex-1  flex-nowrap whitespace-nowrap text-nowrap">
           {option.text}
         </TextWithFont>
       </View>

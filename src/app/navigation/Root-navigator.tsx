@@ -13,9 +13,13 @@ const RootStack = createStackNavigator<RootDefault>()
 export default function DefaultRootStack() {
   return (
     <NavigationContainer ref={navigationRef}>
-      <RootStack.Navigator screenOptions={{ headerShown: false }}>
-        <RootStack.Screen component={AppNavigator} name="App" />
+      <RootStack.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName="App"
+      >
         <RootStack.Screen component={AuthNavigator} name="Auth" />
+
+        <RootStack.Screen component={AppNavigator} name="App" />
       </RootStack.Navigator>
     </NavigationContainer>
   )

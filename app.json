@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "gamified",
-    "slug": "gamified",
+    "slug": "imheree",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/icon.png",
@@ -32,6 +32,7 @@
       "eas": {
         "projectId": "8e072f79-0727-4b87-90f1-bef0f57fc62f"
       }
-    }
+    },
+    "owner": "robson_ribeiro07"
   }
 }
