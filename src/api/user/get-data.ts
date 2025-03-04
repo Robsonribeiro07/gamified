@@ -1,5 +1,5 @@
-import baseApiUser from '@/lib/user/axios'
-import { AxiosError } from 'axios'
+// import baseApiUser from '@/lib/user/axios'
+import axios from 'axios'
 
 interface getUserDataProps {
   userId: number // Quando estiver um back userei token
@@ -7,30 +7,18 @@ interface getUserDataProps {
 
 interface getUserDataResponse {
   id: number
-  nome: string
+  name: string
   coins: number
   cargo: string
   _id: string
 }
-interface Error {
-  message: string
-}
+
 export async function getUserData({
   userId,
-}: getUserDataProps): Promise<getUserDataResponse | Error> {
-  try {
-    const response = await baseApiUser.get(`users/${userId}`)
+}: getUserDataProps): Promise<getUserDataResponse> {
+  const response = await axios.get(
+    `https://67c760b4c19eb8753e7994bc.mockapi.io/user/${userId}`,
+  )
 
-    return response.data
-  } catch (error) {
-    if (error instanceof AxiosError) {
-      return {
-        message: error.message,
-      }
-    }
-  }
-
-  return {
-    message: 'Houve um erro interno',
-  }
+  return response.data
 }

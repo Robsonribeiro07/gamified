@@ -1,7 +1,0 @@
-{
-    "users": [
-      { "id": 2, "nome": "Robson Ribeiro", "coins": 1200, "cargo": "aluno" },
-      { "id": 1, "nome": "Robson Ribeiro", "coins": 1200, "cargo": "aluno" }
-    ]
-  }
-  

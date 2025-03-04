@@ -50,6 +50,7 @@ export const TitleForm = styled(Text)`
 export const ContentInput = styled.View`
   flex-direction: column;
   align-items: start;
+  gap: 5;
 `
 export const InputText = styled.View`
   background-color: ${colors.white};
@@ -59,6 +60,7 @@ export const InputText = styled.View`
   flex-direction: row;
   align-items: center;
   padding-left: 5;
+  gap: 5;
 `
 
 export const Iforgotmypassword = styled.View`

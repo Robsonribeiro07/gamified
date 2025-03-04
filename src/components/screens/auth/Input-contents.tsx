@@ -1,4 +1,3 @@
-import { Text } from '@/components/default-components/Text'
 import { ContentInput, InputText } from './components'
 
 import Icons from 'react-native-vector-icons/FontAwesome'
