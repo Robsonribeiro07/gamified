@@ -6,17 +6,26 @@ import { TextWithTouchOpactiy } from '../default-components/Text-with-opacity-en
 import { useStateNavigationStore } from '@/stores/store/use-state-navigation'
 import { useGetStore } from '@/hooks/store/use-get-store'
 export function Navigation() {
-  const { nextPage, prevPage, isEndPage, isStartPage } =
-    useStateNavigationStore()
+  const {
+    nextPage,
+    prevPage,
+    isEndPage,
+    isStartPage,
+    handleChangePage,
+    goEndPage,
+    goStartPage,
+  } = useStateNavigationStore()
 
   const { nextPages } = useGetStore()
-
-  const { handleChangePage } = useStateNavigationStore()
   return (
     <View className="bg-headerColor w-[75%]  h-12 rounded-md mx-auto  flex-row items-center justify-around">
       <TextWithFont className="text-white/70 text-xl">Pagina</TextWithFont>
 
-      <View className="flex-row items-center gap-3">
+      <View className="flex-row items-center gap-1">
+        {!isStartPage && (
+          <IconsWithTouchOpacity name="chevrons-left" onPress={goStartPage} />
+        )}
+
         <IconsWithTouchOpacity
           name="chevron-left"
           onPress={prevPage}
@@ -36,6 +45,14 @@ export function Navigation() {
           onPress={nextPage}
           disabled={isEndPage}
         />
+
+        {!isEndPage && (
+          <IconsWithTouchOpacity
+            name="chevrons-right"
+            onPress={goStartPage}
+            onPressIn={goEndPage}
+          />
+        )}
       </View>
     </View>
   )

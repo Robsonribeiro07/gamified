@@ -1,5 +1,5 @@
 import { TouchableOpacity } from 'react-native'
-import Icons from 'react-native-vector-icons/FontAwesome'
+import Icons from 'react-native-vector-icons/Feather'
 import { IconProps } from 'react-native-vector-icons/Icon'
 
 export function IconsWithTouchOpacity({
@@ -12,7 +12,7 @@ export function IconsWithTouchOpacity({
   const isDisabled = disabled ? '#D3D3D3' : '#EEEEEE'
   return (
     <TouchableOpacity disabled={disabled}>
-      <Icons name={name} {...rest} color={isDisabled} />
+      <Icons name={name} {...rest} color={isDisabled} size={20} />
     </TouchableOpacity>
   )
 }

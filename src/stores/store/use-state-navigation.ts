@@ -10,6 +10,8 @@ interface StateNavigationStore {
   setTotalPage: (total: number) => void
   nextPage: () => void
   prevPage: () => void
+  goStartPage: () => void
+  goEndPage: () => void
 }
 
 export const useStateNavigationStore = create<StateNavigationStore>(
@@ -59,6 +61,13 @@ export const useStateNavigationStore = create<StateNavigationStore>(
     },
     setTotalPage: (total) => {
       set({ totalPage: total })
+    },
+    goEndPage: () => {
+      const { totalPage } = get()
+      set({ page: totalPage, isEndPage: true, isStartPage: false })
+    },
+    goStartPage: () => {
+      set({ page: 1, isStartPage: true, isEndPage: false })
     },
   }),
 )

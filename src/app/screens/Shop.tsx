@@ -1,11 +1,12 @@
 import { NavItems } from '@/components/home/nav/nav-button'
 import { CardItems } from '@/components/shop/Card-items'
 import { Navigation } from '@/components/shop/Navigation'
+import { ContentSkeletonShop } from '@/components/shop/skeleton/content-skeleton-shop'
 import { useGetStore } from '@/hooks/store/use-get-store'
 import { ScrollView, Text, View } from 'react-native'
 
 export default function ShopPage() {
-  const { data } = useGetStore()
+  const { data, isFetching } = useGetStore()
 
   return (
     <ScrollView
@@ -16,7 +17,11 @@ export default function ShopPage() {
       <NavItems Type="Shop" className="min-w-full h-[90] rounded-xl" />
 
       <View className="bg-headerColor p-3  rounded-xl flex-1 pb-10 gap-3">
-        {data && data?.length > 0 ? (
+        {isFetching || !data ? (
+          <ContentSkeletonShop />
+        ) : !isFetching && data.length < 1 ? (
+          <Text>nenhum item disponivel</Text>
+        ) : (
           data.map((item) => (
             <CardItems
               key={item.id}
@@ -25,10 +30,6 @@ export default function ShopPage() {
               estoque={item.Estoque}
             />
           ))
-        ) : (
-          <View className="items-center">
-            <Text className="text-white">Nenhum item disponível</Text>
-          </View>
         )}
       </View>
       <Navigation />

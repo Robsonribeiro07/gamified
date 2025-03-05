@@ -25,7 +25,7 @@ export function CardItems({ estoque, price, itemName }: CardItemsProps) {
           </TextWithFont>
         </View>
 
-        <View className="flex-row w-full gap-5">
+        <View className="flex-row w-full gap-4">
           <TextWithFont className="text-white/70 text-xl">
             Estoque:
           </TextWithFont>

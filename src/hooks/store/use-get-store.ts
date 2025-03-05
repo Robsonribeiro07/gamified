@@ -17,11 +17,12 @@ export function useGetStore() {
   })
 
   const totalPages = useMemo(() => {
-    return storeTotal ? Math.ceil(storeTotal.length | limit) : 9
+    return storeTotal ? Math.ceil(storeTotal.length / limit) : 9
   }, [storeTotal, limit])
 
   const nextPages = useMemo(() => {
-    return Array.from({ length: 4 }, (_, i) => page + i).filter(
+    if (!totalPages) return []
+    return Array.from({ length: 3 }, (_, i) => page + i).filter(
       (p) => p <= totalPages,
     )
   }, [page, totalPages])
