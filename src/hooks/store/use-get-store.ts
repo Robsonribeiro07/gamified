@@ -9,11 +9,15 @@ export function useGetStore() {
   const { data, isFetching, isError } = useQuery({
     queryKey: ['store', page, limit],
     queryFn: () => getStore({ page, limit }),
+    refetchOnWindowFocus: false,
+    staleTime: 1000 * 60 * 10,
   })
 
   const { data: storeTotal } = useQuery({
     queryKey: ['storeTotal'],
     queryFn: getStoreTotal,
+    refetchOnWindowFocus: false,
+    staleTime: 1000 * 5,
   })
 
   const totalPages = useMemo(() => {

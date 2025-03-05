@@ -12,7 +12,7 @@ export function IconsWithTouchOpacity({
   const isDisabled = disabled ? '#D3D3D3' : '#EEEEEE'
   return (
     <TouchableOpacity disabled={disabled}>
-      <Icons name={name} {...rest} color={isDisabled} size={20} />
+      <Icons name={name} {...rest} color={isDisabled} size={25} />
     </TouchableOpacity>
   )
 }

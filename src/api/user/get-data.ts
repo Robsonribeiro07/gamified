@@ -5,7 +5,7 @@ interface getUserDataProps {
   userId: number // Quando estiver um back userei token
 }
 
-interface getUserDataResponse {
+export interface getUserDataResponse {
   id: number
   name: string
   coins: number

@@ -15,6 +15,7 @@ export const Container = styled.View`
 
 export const Header = styled.View`
   flex-direction: column;
+  min-width: fit-content;
   justify-content: center;
   align-items: center;
 `

@@ -18,7 +18,7 @@ export function Navigation() {
 
   const { nextPages } = useGetStore()
   return (
-    <View className="bg-headerColor w-[75%]  h-12 rounded-md mx-auto  flex-row items-center justify-around">
+    <View className="bg-headerColor min-w-fit w-[85%]  h-12 rounded-md mx-auto  flex-row items-center justify-around">
       <TextWithFont className="text-white/70 text-xl">Pagina</TextWithFont>
 
       <View className="flex-row items-center gap-1">
@@ -31,15 +31,17 @@ export function Navigation() {
           onPress={prevPage}
           disabled={isStartPage}
         />
-        {nextPages?.map((page) => (
-          <TextWithTouchOpactiy
-            className="text-white text-lg"
-            key={page}
-            onPress={() => handleChangePage(page)}
-          >
-            {page}
-          </TextWithTouchOpactiy>
-        ))}
+        <View className="items-center gap-3 min-w-fit flex-row">
+          {nextPages?.map((page) => (
+            <TextWithTouchOpactiy
+              className="text-white text-xl"
+              key={page}
+              onPress={() => handleChangePage(page)}
+            >
+              {page}
+            </TextWithTouchOpactiy>
+          ))}
+        </View>
         <IconsWithTouchOpacity
           name="chevron-right"
           onPress={nextPage}
