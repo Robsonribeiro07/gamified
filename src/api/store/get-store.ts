@@ -9,8 +9,8 @@ interface getStoreProps {
 type getStoreResponse = {
   id: string
   itemName: string
-  valor: number
-  estoque: number
+  Valor: number
+  Estoque: number
 }[]
 
 export async function getStore({

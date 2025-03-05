@@ -3,6 +3,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/Avatar'
 import { StudentCard } from './student-Card'
 import { Coins } from './coins'
 import { useGetData } from '@/hooks/user/use-get-data'
+import { SkeletonStudentCard } from './skeleton/student-Card-skeleton'
+import { CoinsSkeleton } from './skeleton/coins-skeleton'
 
 export function Header() {
   const { data } = useGetData()
@@ -23,10 +25,14 @@ export function Header() {
           </AvatarFallback>
         </Avatar>
 
-        <StudentCard Name={data?.name!} Cargo={data?.cargo!} _id={data?._id!} />
+        {data ? (
+          <StudentCard Name={data.name} Cargo={data.cargo} _id={data._id} />
+        ) : (
+          <SkeletonStudentCard />
+        )}
       </View>
 
-      <Coins />
+      {data ? <Coins /> : <CoinsSkeleton />}
     </View>
   )
 }

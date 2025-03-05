@@ -21,8 +21,8 @@ export default function ShopPage() {
             <CardItems
               key={item.id}
               itemName={item.itemName}
-              price={item.valor}
-              estoque={item.estoque}
+              price={item.Valor}
+              estoque={item.Estoque}
             />
           ))
         ) : (

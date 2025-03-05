@@ -30,6 +30,7 @@ export default [
     rules: {
       'react/react-in-jsx-scope': 'off', // Desativa a regra de importar o React
       '@typescript-eslint/no-require-imports': 'off',
+      'no-undef': 'off',
     },
   },
 
