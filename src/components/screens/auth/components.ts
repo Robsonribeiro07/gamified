@@ -19,11 +19,6 @@ export const Header = styled.View`
   justify-content: center;
   align-items: center;
 `
-export const TextName = styled.Text`
-  color: ${colors.white};
-  font-size: ${fontSize.xl};
-  font-family: 'Questrial_400Regular';
-`
 
 export const TextDescription = styled.Text`
   color: ${colors.white};
@@ -43,11 +38,6 @@ export const FormContainer = styled.View`
   border-radius: 10px;
 `
 
-export const TitleForm = styled(Text)`
-  font-size: 28;
-  opacity: 0.9;
-  color: ${colors.white};
-`
 export const ContentInput = styled.View`
   flex-direction: column;
   align-items: start;

@@ -13,7 +13,7 @@ export function useGetData() {
 
     if (result) return result
 
-    const apiData = await getUserData({ userId: 5 })
+    const apiData = await getUserData({ userId: 3 })
 
     return apiData
   }

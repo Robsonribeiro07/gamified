@@ -9,7 +9,12 @@ export default function App() {
   useCustomFonts()
   return (
     <QueryClientProvider client={queryClient}>
-      <StatusBar barStyle="light-content" />
+      <StatusBar
+        barStyle="light-content"
+        translucent
+        backgroundColor="transparent"
+      />
+
       <DefaultRootStack />
     </QueryClientProvider>
   )

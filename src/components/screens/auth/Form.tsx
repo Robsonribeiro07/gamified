@@ -1,10 +1,5 @@
 import { Text } from '@/components/default-components/Text'
-import {
-  ButtonLogin,
-  FormContainer,
-  Iforgotmypassword,
-  TitleForm,
-} from './components'
+import { ButtonLogin, FormContainer, Iforgotmypassword } from './components'
 import { InputContents } from './Input-contents'
 import { useFormAuth } from '@/hooks/auth/form'
 import { Controller } from 'react-hook-form'
@@ -19,7 +14,9 @@ export function FormAuth() {
   }
   return (
     <FormContainer>
-      <TitleForm>Faça seu login</TitleForm>
+      <TextWithFont className="text-2xl text-white min-w-fit">
+        Faça seu login
+      </TextWithFont>
 
       {inputs.map((input) => (
         <Controller

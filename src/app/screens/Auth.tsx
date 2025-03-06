@@ -3,15 +3,15 @@ import {
   Container,
   Header,
   TextDescription,
-  TextName,
 } from '@/components/screens/auth/components'
 import { FormAuth } from '@/components/screens/auth/Form'
+import { TextWithFont } from '@/components/default-components/Text-with-font'
 
 const AuthPage = () => {
   return (
     <Container>
       <Header>
-        <TextName>GAMIFIED</TextName>
+        <TextWithFont className="text-white text-5xl">GAMIFIED</TextWithFont>
 
         <TextDescription>
           Sua plataforma de {'\n'} estímulo ao aprendizado

@@ -37,7 +37,6 @@ export function useAsyncStorage() {
         _id,
         id,
       })
-      console.log('dados existente')
     } else {
       if (
         existingDatabase.name !== name ||
@@ -70,9 +69,110 @@ export function useAsyncStorage() {
     }
   }
 
+  async function changerName(name: string) {
+    try {
+      const result = await handleGetUserDataBase()
+
+      const updateData = { ...result, name }
+
+      if (result && result.name !== name) {
+        await AsyncStorage.setItem(
+          '@user_data',
+          JSON.stringify({
+            updateData,
+          }),
+        )
+      } else {
+        return {
+          message: 'Usuario ja esta usando este nome',
+        }
+      }
+
+      return updateData
+    } catch {
+      return null
+    }
+  }
+
+  async function changerCoins(coins: number) {
+    try {
+      const result = await handleGetUserDataBase()
+
+      const updateData = { ...result, coins }
+
+      if (result && result.coins !== coins) {
+        await AsyncStorage.setItem(
+          '@user_data',
+          JSON.stringify({
+            updateData,
+          }),
+        )
+      } else {
+        return {
+          message: 'Saldo igual ao anterior',
+        }
+      }
+
+      return updateData
+    } catch {
+      return null
+    }
+  }
+  async function changerCargo(cargo: string) {
+    try {
+      const result = await handleGetUserDataBase()
+
+      const updateData = { ...result, cargo }
+
+      if (result && result.cargo !== cargo) {
+        await AsyncStorage.setItem(
+          '@user_data',
+          JSON.stringify({
+            updateData,
+          }),
+        )
+      } else {
+        return {
+          message: 'Cargo igual ao anterior',
+        }
+      }
+
+      return updateData
+    } catch {
+      return null
+    }
+  }
+  async function changer_id(_id: string) {
+    try {
+      const result = await handleGetUserDataBase()
+
+      const updateData = { ...result, _id }
+
+      if (result && result._id !== _id) {
+        await AsyncStorage.setItem(
+          '@user_data',
+          JSON.stringify({
+            updateData,
+          }),
+        )
+      } else {
+        return {
+          message: '_id igual ao anterior',
+        }
+      }
+
+      return updateData
+    } catch {
+      return null
+    }
+  }
   return {
     handleSaveUserDatabase,
     handleGetUserDataBase,
     removeItemFromAsyncStorage,
+    changerCargo,
+    changerName,
+    changerCoins,
+    changer_id,
   }
 }
