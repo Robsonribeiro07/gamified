@@ -7,7 +7,7 @@ import {
 import { FormAuth } from '@/components/screens/auth/Form'
 import { TextWithFont } from '@/components/default-components/Text-with-font'
 
-const AuthPage = () => {
+export default function AuthPage() {
   return (
     <Container>
       <Header>
@@ -22,5 +22,3 @@ const AuthPage = () => {
     </Container>
   )
 }
-
-export default AuthPage

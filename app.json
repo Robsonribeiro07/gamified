@@ -25,13 +25,15 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-font"
+      "expo-font",
+      "expo-router"
     ],
     "extra": {
       "eas": {
         "projectId": "8e072f79-0727-4b87-90f1-bef0f57fc62f"
       }
     },
-    "owner": "robson_ribeiro07"
+    "owner": "robson_ribeiro07",
+    "scheme": "gamified" 
   }
 }

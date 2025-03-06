@@ -4,13 +4,12 @@ import { InputContents } from './Input-contents'
 import { useFormAuth } from '@/hooks/auth/form'
 import { Controller } from 'react-hook-form'
 import { TextWithFont } from '@/components/default-components/Text-with-font'
-import { navigate } from '@/app/navigation/navigation.ref'
 
 export function FormAuth() {
   const { isSubmitting, inputs, handleSubmit, control } = useFormAuth()
 
   const handleSumitFn = async () => {
-    navigate('App')
+    // navigate('App')
   }
   return (
     <FormContainer>
