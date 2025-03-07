@@ -1,5 +1,4 @@
 import { getHistorico, getHistoricoTotal } from '@/api/historico/get-historico'
-import { getStore } from '@/api/store/get-store'
 import { useStateNavigationHistorico } from '@/stores/historico/use-state-navigation-historico'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useMemo } from 'react'
@@ -15,7 +14,7 @@ export function useGetHistorico() {
   })
 
   const { data: historicoTotal } = useQuery({
-    queryKey: ['storeTotal'],
+    queryKey: ['historicoTotal'],
     queryFn: getHistoricoTotal,
     refetchOnWindowFocus: false,
     staleTime: 1000 * 5,
@@ -31,16 +30,6 @@ export function useGetHistorico() {
       (p) => p <= totalPages,
     )
   }, [page, totalPages])
-  const nextPagesData = useQuery({
-    queryKey: ['store', nextPages, limit],
-    queryFn: async () => {
-      const responses = await Promise.all(
-        nextPages.map((p) => getStore({ page: p, limit })),
-      )
-      return responses.flat()
-    },
-    enabled: !!page,
-  })
 
   useEffect(() => {
     if (historicoTotal && historicoTotal.length > 0) {
@@ -50,7 +39,6 @@ export function useGetHistorico() {
 
   return {
     data,
-    nextPagesData: nextPagesData.data || [],
     isError,
     isFetching,
     nextPages,

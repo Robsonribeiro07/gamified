@@ -13,7 +13,6 @@ export function ProtectRouter({ children }: { children: ReactNode }) {
   const [checkingAuth, setCheckingAuth] = useState(true)
 
   useEffect(() => {
-    console.log('Executando useEffect: pathname ->', pathname)
     if (!isAuthenticated && privateRoutes.includes(pathname)) {
       if (pathname !== '/Auth') replace('/Auth')
     }

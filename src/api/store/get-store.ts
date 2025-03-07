@@ -25,7 +25,7 @@ export async function getStore({
 }
 export async function getStoreTotal(): Promise<getStoreResponse> {
   const response = await axios.get(
-    `https://67c9ffee102d684575c43300.mockapi.io/historico`,
+    `https://67c760b4c19eb8753e7994bc.mockapi.io/store`,
   )
 
   return response.data

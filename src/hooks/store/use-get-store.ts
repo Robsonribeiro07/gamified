@@ -21,25 +21,16 @@ export function useGetStore() {
   })
 
   const totalPages = useMemo(() => {
-    return storeTotal ? Math.ceil(storeTotal.length / limit) : 9
+    return storeTotal ? Math.ceil(storeTotal.length / limit) : 0
   }, [storeTotal, limit])
 
   const nextPages = useMemo(() => {
     if (!totalPages) return []
+
     return Array.from({ length: 3 }, (_, i) => page + i).filter(
       (p) => p <= totalPages,
     )
   }, [page, totalPages])
-  const nextPagesData = useQuery({
-    queryKey: ['store', nextPages, limit],
-    queryFn: async () => {
-      const responses = await Promise.all(
-        nextPages.map((p) => getStore({ page: p, limit })),
-      )
-      return responses.flat()
-    },
-    enabled: !!page,
-  })
 
   useEffect(() => {
     if (storeTotal && storeTotal.length > 0) {
@@ -49,7 +40,6 @@ export function useGetStore() {
 
   return {
     data,
-    nextPagesData: nextPagesData.data || [],
     isError,
     isFetching,
     nextPages,

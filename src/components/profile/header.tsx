@@ -7,6 +7,7 @@ import { SkeletonStudentCard } from './skeleton/student-Card-skeleton'
 import { CoinsSkeleton } from './skeleton/coins-skeleton'
 import { useStateModalDetails } from '@/stores/profile/use-state-more-details'
 import { MoreDetails } from './more-details'
+import { AvatarProfile } from './avatar'
 
 export function Header() {
   const { data } = useGetData()
@@ -17,18 +18,7 @@ export function Header() {
     <View className="w-full h-[80] rounded bg-headerColor p-1 flex-row items-center  px-2 rounded-bl-xl rounded-br-xl justify-between">
       <View className="flex-row gap-3 items-center">
         <TouchableOpacity onPress={handleOpen}>
-          <Avatar
-            alt="avatar profile"
-            className="rounded bg-backgroundColor  h-16 w-16"
-          >
-            <AvatarImage
-              source={require('@/assets/icons/image.png')}
-              className="rounded"
-            />
-            <AvatarFallback>
-              <Text>RB</Text>
-            </AvatarFallback>
-          </Avatar>
+          <AvatarProfile />
         </TouchableOpacity>
 
         <View className="relative">{open && <MoreDetails />}</View>
