@@ -2,7 +2,6 @@ import styled from 'styled-components/native'
 
 import { fontSize, colors } from '@/styles/themes/index'
 import { Dimensions } from 'react-native'
-import { Text } from '@/components/default-components/Text'
 
 const { width } = Dimensions.get('window')
 

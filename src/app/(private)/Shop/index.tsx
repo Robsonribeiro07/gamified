@@ -10,7 +10,7 @@ export default function ShopPage() {
 
   return (
     <ScrollView
-      className=" flex-1  pt-5 gap-10 w-[80%] mx-auto"
+      className=" flex-1   gap-10 w-full mx-auto"
       contentContainerStyle={{ paddingTop: 10, gap: 10, paddingBottom: 30 }}
       showsVerticalScrollIndicator={false}
     >

@@ -1,12 +1,10 @@
-import { RouterStacks } from '@/app/navigation/router-types'
 import { TextWithFont } from '@/components/default-components/Text-with-font'
-import { useNavigation } from '@react-navigation/native'
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { TouchableOpacity } from 'react-native'
 import { Image, View } from 'react-native'
 import { twMerge } from 'tailwind-merge'
+import { RoouterTypes } from '@/Routes/Types'
+import { usePathname, useRouter } from 'expo-router'
 
-type NavigationProps = NativeStackNavigationProp<RouterStacks, 'Home'>
 const ItensNav = {
   Historico: {
     image: require('@/assets/icons/historico.png'),
@@ -25,23 +23,25 @@ const ItensNav = {
 interface NavItemsProps {
   Type: keyof typeof ItensNav
   className?: string
-  route?: keyof RouterStacks
+  route?: keyof RoouterTypes
 }
 export function NavItems({ Type, className, route }: NavItemsProps) {
   const option = ItensNav[Type]
 
-  const navigation = useNavigation<NavigationProps>()
+  const { push } = useRouter()
+
+  const pathname = usePathname()
 
   const handleNavigate = () => {
-    if (!route || !navigation) return
-    navigation.navigate(route)
+    if (!route || pathname.includes(route)) return
+    push(route)
   }
 
   return (
     <TouchableOpacity activeOpacity={0.8} onPress={handleNavigate}>
       <View
         className={twMerge(
-          `min-w-[85%] bg-headerColor h-[125] rounded-[20] items-center justify-around flex-row gap-3 px-2 `,
+          `min-w-fit w-full bg-headerColor h-[125] rounded-[20] items-center justify-around flex-row gap-3 px-2 `,
           className,
         )}
       >

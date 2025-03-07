@@ -2,19 +2,18 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import './global.css'
 import { Stack } from 'expo-router'
 import queryClient from '@/lib/queryclient'
+import { StatusBar } from 'expo-status-bar'
 import useCustomFonts from '@/hooks/use-custom-fonts'
-import { StatusBar } from 'react-native'
+import { ProtectRouter } from '@/Routes/protected.route'
 
 export default function RootLayout() {
   useCustomFonts()
   return (
     <QueryClientProvider client={queryClient}>
-      <StatusBar
-        barStyle="light-content"
-        translucent
-        backgroundColor="transparent"
-      />
-      <Stack screenOptions={{ headerShown: false }} />
+      <StatusBar hidden />
+      <ProtectRouter>
+        <Stack screenOptions={{ headerShown: false }} />
+      </ProtectRouter>
     </QueryClientProvider>
   )
 }

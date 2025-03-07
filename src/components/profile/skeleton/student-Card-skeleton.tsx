@@ -1,5 +1,5 @@
 import { View } from 'react-native'
-import { Skeleton } from 'components/Skeleton'
+import { Skeleton } from '@/components/ui/Skeleton'
 import Icons from 'react-native-vector-icons/FontAwesome'
 
 export function SkeletonStudentCard() {

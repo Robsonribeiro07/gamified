@@ -3,7 +3,7 @@ import { View } from 'react-native'
 
 export default function Home() {
   return (
-    <View className="bg-backgroundColor flex-1 h-screen items-center justify-center">
+    <View className="bg-backgroundColor  min-w-fit flex-1 h-screen items-center justify-center">
       <NavigationHome />
     </View>
   )

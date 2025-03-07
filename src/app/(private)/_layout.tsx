@@ -10,7 +10,13 @@ export default function LayoutApp() {
       <Stack
         screenOptions={{
           headerShown: false,
-          contentStyle: { backgroundColor: colors.backgroundColor, flex: 1 },
+          contentStyle: {
+            backgroundColor: colors.backgroundColor,
+            flex: 1,
+            width: '80%',
+            marginHorizontal: 'auto',
+            paddingTop: 20,
+          },
         }}
       />
     </View>

@@ -1,5 +1,5 @@
 import { TextWithFont } from '@/components/default-components/Text-with-font'
-import { Skeleton } from 'components/Skeleton'
+import { Skeleton } from '@/components/ui/Skeleton'
 import { Image, View } from 'react-native'
 
 export function CardItemsSkeleton() {

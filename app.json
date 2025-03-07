@@ -9,10 +9,14 @@
     "newArchEnabled": true,
     "splash": {
       "image": "./src/assets/splash-icon.png",
-      "resizeMode": "contain"
+      "resizeMode": "contain",
+      "backgroundColor": "#4169E1"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "UIStatusBarHidden": true
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -20,6 +24,9 @@
         "backgroundColor": "#ffffff"
       },
       "package": "com.anonymous.imheree"
+    },
+    "androidStatusBar": {
+      "hidden": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -34,6 +41,6 @@
       }
     },
     "owner": "robson_ribeiro07",
-    "scheme": "gamified" 
+    "scheme": "gamified"
   }
 }

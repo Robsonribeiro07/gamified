@@ -1,5 +1,5 @@
 import { View } from 'react-native'
-import { Skeleton } from 'components/Skeleton'
+import { Skeleton } from '@/components/ui/Skeleton'
 import { TextWithFont } from '@/components/default-components/Text-with-font'
 
 export function CoinsSkeleton() {
