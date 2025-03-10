@@ -1,27 +1,18 @@
 {
   "cli": {
-    "version": ">= 15.0.13",
+    "version": ">= 15.0.14",
     "appVersionSource": "remote"
   },
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal",
-      "env": {
-        "NODE_VERSION": "20"
-      }
+      "distribution": "internal"
     },
     "preview": {
-      "distribution": "internal",
-      "env": {
-        "NODE_VERSION": "20"
-      }
+      "distribution": "internal"
     },
     "production": {
-      "autoIncrement": true,
-      "env": {
-        "NODE_VERSION": "20"
-      }
+      "autoIncrement": true
     }
   },
   "submit": {

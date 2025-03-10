@@ -1,17 +1,15 @@
 import { getUserData } from '@/api/user/get-data'
 import { useAsyncStorage } from '@/database/asyncStorage/hooks/use-async-stora'
-import { useDatabaseMMkV } from '@/database/MMKV/hooks/use-state-profile'
 import { useQuery } from '@tanstack/react-query'
 
 import { useEffect, useState } from 'react'
 
 export function useGetData() {
-  // const { handleSaveUserDatabase, handleGetUserDataBase } = useAsyncStorage()
-  const { getUserDatabaseMMKV, saveUserDatabaseMMKV } = useDatabaseMMkV()
+  const { handleGetUserDataBase, handleSaveUserDatabase } = useAsyncStorage()
   const [isDataFetched, setIsDataFetched] = useState(false)
 
   const getDataWithDatabase = async () => {
-    const result = getUserDatabaseMMKV()
+    const result = await handleGetUserDataBase()
 
     console.log('retornei dados local')
     if (result) return result
@@ -29,7 +27,7 @@ export function useGetData() {
 
   useEffect(() => {
     if (data) {
-      saveUserDatabaseMMKV({
+      handleSaveUserDatabase({
         _id: data._id,
         cargo: data.cargo,
         name: data.name,

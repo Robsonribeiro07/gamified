@@ -1,4 +1,4 @@
-import { Loading } from '@/app/(private)/loading'
+import Loading from '@/app/(private)/loading'
 import { usePathname, useRouter } from 'expo-router'
 import { ReactNode, useEffect, useState } from 'react'
 

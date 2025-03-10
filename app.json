@@ -23,7 +23,8 @@
         "foregroundImage": "./src/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.imheree"
+      "package": "com.anonymous.imheree",
+      "versionCode": 2
     },
     "androidStatusBar": {
       "hidden": true
