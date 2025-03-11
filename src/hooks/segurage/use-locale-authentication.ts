@@ -1,5 +1,6 @@
 import * as LocalAuthentication from 'expo-local-authentication'
-import { Alert, Linking, Vibration } from 'react-native'
+import { router } from 'expo-router'
+import { Alert, Linking } from 'react-native'
 
 export function useLocaleAuthentication() {
   const isErroledAsync = async () => {
@@ -10,8 +11,6 @@ export function useLocaleAuthentication() {
     const isLocaleAuthenticationSaved = await isErroledAsync()
 
     if (!isLocaleAuthenticationSaved) {
-      Vibration.vibrate()
-
       Alert.alert('Erro', 'Por favor cadastre uma biometria', [
         { text: 'definir', onPress: () => Linking.openSettings() },
       ])
@@ -33,6 +32,7 @@ export function useLocaleAuthentication() {
         'Autenticação bem-sucedida',
         'Você foi autenticado com sucesso!',
       )
+      router.replace('/Home')
     }
   }
 
